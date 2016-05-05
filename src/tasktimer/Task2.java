@@ -1,12 +1,21 @@
 package tasktimer;
 
 import static java.lang.System.out;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * 
+ * @author Thanut Sajjakulnukit (5810545416)
+ *
+ */
 public class Task2 implements Runnable {
+	
+	/**
+	 * This is the run method of this task to read wordlist.txt file and processing
+	 * to find average word length
+	 */
 	public void run() {
 		BufferedReader br = null;
         try {
@@ -34,8 +43,10 @@ public class Task2 implements Runnable {
         }
 	}
 	
+	/**
+	 * This method is used to describe the task
+	 */
 	public String toString(){
 		return "Starting task: read words using BufferedReader.readLine() with a loop";
 	}
-
 }

@@ -10,20 +10,22 @@ import java.util.concurrent.atomic.*;  // hack, using AtomicInteger as accumulat
 /**
  * Time how long it takes to perform some tasks
  * using different programming constructs.
- * 
- * TODO Improve this code by restructuring it to eliminate duplicate code.
+ * @author Thanut Sajjakulnukit (5810545416)
  */
 public class TaskTimer
 {
     private static String DICTIONARY = "wordlist.txt";
     
+    /**
+     * This method is used to run the task
+     * @param task is task that you want to run the program
+     */
     public static void execAndPrint(Runnable task){
     	System.out.println(task.toString());
     	StopWatch.start();
     	task.run();
     	StopWatch.stop();
     	out.printf("Elapsed time is %f sec\n",StopWatch.getElapsed());
-    	
     }
     
     /** 
