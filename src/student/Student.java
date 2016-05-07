@@ -1,6 +1,7 @@
 package student;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 /**
@@ -66,23 +67,8 @@ public class Student {
 	 * @param datestr is a String containing birthday in the format "dd/mm/yyyy".
 	 * @throws IllegalArgumentException if datestr is not in the correct format.
 	 */
-	//TODO Improve this code. Let LocalDate and DateTimeFormatter parse
-	// the string for you.  Eliminate the use of Scanner!
 	private void setBirthdate(String datestr) {
-		Scanner scanner = new Scanner(datestr);
-		scanner.useDelimiter("/");
-		if (!scanner.hasNextInt())
-			throw new IllegalArgumentException("date string must have format dd/mm/yyyy");
-		int day = scanner.nextInt();
-		if (!scanner.hasNextInt())
-			throw new IllegalArgumentException("date string must have format dd/mm/yyyy");
-		int month = scanner.nextInt();
-		if (!scanner.hasNextInt())
-			throw new IllegalArgumentException("date string must have format dd/mm/yyyy");
-		int year = scanner.nextInt();
-		if (scanner.hasNext())
-			throw new IllegalArgumentException("date string must have format dd/mm/yyyy");
-		birthdate = LocalDate.of(year, month, day);
+		birthdate = LocalDate.parse(datestr, DateTimeFormatter.ofPattern("dd/mm/yyyy"));
 	}
 	
 	@Override
